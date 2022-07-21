@@ -1,6 +1,5 @@
 #pylint: disable=E1101
 
-
 from src.infra.config import DBConnectionHandler
 from src.infra.config import Users
 
@@ -19,5 +18,6 @@ class FakerUser:
             except:
                 db_connection.session.rollback()
                 raise
-            finaly:
-                db_connection.session.close()
+            finally:
+                  db_connection.session.close()
+              
