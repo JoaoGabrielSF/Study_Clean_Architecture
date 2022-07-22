@@ -1,18 +1,17 @@
 #pylint: disable=E1101
-
 from src.infra.config import DBConnectionHandler
-from src.infra.config import Users
+from src.infra.entities import Users
 
-class FakerUser:
+class FakerRepo:
     """A simples Repository"""
    
     @classmethod
-    def insert_use(cls, name: str, password: str):
+    def insert_user(cls, name: str, password: str):
         """ Class method """
 
         with DBConnectionHandler() as db_connection:
             try:
-                new_user = Users(name="Bagos", password="Lhama")
+                new_user = Users(name="Programador", password="azul")
                 db_connection.session.add(new_user)
                 db_connection.session.commit()
             except:
