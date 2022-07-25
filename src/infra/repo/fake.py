@@ -11,7 +11,7 @@ class FakerRepo:
 
         with DBConnectionHandler() as db_connection:
             try:
-                new_user = Users(name="Homem", password="azul")
+                new_user = Users(name="Simplesmente", password="Incrível")
                 db_connection.session.add(new_user)
                 db_connection.session.commit()
             except:
