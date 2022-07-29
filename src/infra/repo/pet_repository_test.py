@@ -34,5 +34,5 @@ def test_insert_pet():
     assert new_pet.age == query_pet.age
     assert new_pet.user_id == query_pet.user_id
     
-    engine.execute("DELETE FROM users WHERE id= '{}';".format(new_pet.id))
+    engine.execute("DELETE FROM pets WHERE id= '{}';".format(new_pet.id))
     

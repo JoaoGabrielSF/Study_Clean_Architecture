@@ -5,9 +5,9 @@ import enum
 class AnimalType(enum.Enum):
     """ Defining AnimalType """
     
-    dog = 'dog',
-    cat = 'cat',
-    fish = 'fish',
+    dog = 'dog'
+    cat = 'cat'
+    fish = 'fish'
     turtle = 'turtle'
     
     

@@ -38,9 +38,10 @@ class PetRepository:
         
         return None
     
+    @classmethod
     def select_pet_by_id(cls, id: int = None) -> List[Pets]:
          """
-        Select data in user entity by id and/or name
+        Select data in pet entity by id and/or name
         :param - id: Id of the registry
         :return - List with Pets selected
         """    
@@ -64,7 +65,7 @@ class PetRepository:
                 
          return None
      
-
+    @classmethod
     def select_pet_by_name(cls, name: str = None) -> List[Pets]:
          """
         Select data in user entity by id and/or name

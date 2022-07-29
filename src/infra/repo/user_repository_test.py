@@ -26,14 +26,17 @@ def test_insert_user():
     assert new_user.name == query_user.name
     assert new_user.password == query_user.password
     
+    engine.execute("DELETE FROM users WHERE id= '{}';".format(new_user.id))
+
 def test_select_user():
     """ Should select a user in Users table and compare it """
         
-    user_id = faker.random_number(digits=5)
+    user_id = faker.random_number(digits=2)
     name = faker.name()
     password = faker.word()
     data = UsersModel(id=user_id, name=name, password=password)
         
+
     engine = db_connection_handler.get_engine()
     engine.execute(
             "INSERT INTO users (id, name, password) VALUES ('{}', '{}', '{}');".format(
@@ -42,12 +45,12 @@ def test_select_user():
         )
         
    
-    query_user1 = user_repository.select_user(user_id=user_id)
-    query_user2 = user_repository.select_user(name=name)
-    query_user3 = user_repository.select_user(user_id=user_id, name=name)
+    query_user1 = user_repository.select_user_by_id(id=user_id)
+    query_user2 = user_repository.select_user_by_name(name=name)
+    query_user3 = user_repository.select_user_by_id(id=user_id)
         
     assert data in query_user1
     assert data in query_user2
     assert data in query_user3
         
-    engine.execute("DELETE FROM users WHERE id= '{}';".format(user_id))
+    engine.execute("DELETE FROM users WHERE id= '{}';".format(data.id))
