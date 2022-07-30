@@ -1,9 +1,10 @@
 from typing import List
+from src.data.interfaces import PetRepositoryInterface
 from src.domain.models.pets import Pets
 from src.infra.config import DBConnectionHandler 
 from src.infra.entities import Pets as PetsModel
 
-class PetRepository:
+class PetRepository(PetRepositoryInterface):
     """ Class to manage Pet Repository """
     
     @classmethod
@@ -57,6 +58,7 @@ class PetRepository:
                 query_data = [data]
                     
                 return query_data
+            
          except:
                         db_connection.session.rollback()
                         raise  
@@ -91,3 +93,5 @@ class PetRepository:
                     db_connection.session.close()
                 
          return None
+     
+     

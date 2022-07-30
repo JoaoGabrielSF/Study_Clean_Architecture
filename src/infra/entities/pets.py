@@ -2,8 +2,8 @@ from sqlalchemy import Column, String, Integer, ForeignKey, Enum
 from src.infra.config import Base
 import enum
 
-class AnimalType(enum.Enum):
-    """ Defining AnimalType """
+class AnimalTypes(enum.Enum):
+    """ Defining AnimalTypes """
     
     dog = 'dog'
     cat = 'cat'
@@ -18,7 +18,7 @@ class Pets(Base):
     
     id = Column(Integer, primary_key=True)
     name = Column(String(20), nullable=False, unique=True)
-    specie = Column(Enum(AnimalType),nullable=False)
+    specie = Column(Enum(AnimalTypes),nullable=False)
     age = Column(Integer)
     user_id = Column(Integer, ForeignKey("users.id"))
     
