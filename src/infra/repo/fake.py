@@ -3,7 +3,7 @@ from src.infra.config import DBConnectionHandler
 from src.infra.entities import Users
 
 class FakerRepo:
-    """A simples Repository"""
+    """A simple Repository"""
    
     @classmethod
     def insert_user(cls, name: str, password: str):
