@@ -18,7 +18,7 @@ class FindUser(FindUserInterface):
         validate_entry = isinstance(name, str) 
         
         if validate_entry:
-            response = self.user_repository.insert_user(name)
+            response = self.user_repository.select_user_by_name(name)
             
         return { "Sucess": validate_entry, "Data": response}
   
@@ -31,6 +31,8 @@ class FindUser(FindUserInterface):
         validate_entry = isinstance(id, int) 
         
         if validate_entry:
-            response = self.user_repository.insert_user(id, int)
+            response = self.user_repository.select_user_by_id(id)
             
         return { "Sucess": validate_entry, "Data": response}
+    
+  

@@ -6,17 +6,17 @@ from src.domain.models import Users
 class UserRepositoryInterface(ABC):
     """ Interface to User Repository """
     
-    def insert_user(self, name: str, specie: str, age: int, user_id: int) -> Users:
+    def insert_user(self, name: str, password: int) -> Users:
         """ abstractmethod """
         
         raise Exception("Method not implemented")
 
-    def select_user_by_name(self, name: str, specie: str, age: int, user_id: int) -> Users:
+    def select_user_by_name(self, name: str) -> Users:
         """ abstractmethod """
         
         raise Exception("Method not implemented")
 
-    def select_user_by_name(self, name: str, specie: str, age: int, user_id: int) -> Users:
+    def select_user_by_id(self, id: int) -> Users:
         """ abstractmethod """
         
         raise Exception("Method not implemented")
