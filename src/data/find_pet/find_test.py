@@ -23,8 +23,6 @@ def test_by_id():
     assert response["Data"]
 
 
-
-
 def test_by_user_id():
     """ Testing find Pet by_use_id method """
 
