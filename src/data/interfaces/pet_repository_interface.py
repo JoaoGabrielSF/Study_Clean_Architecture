@@ -11,12 +11,12 @@ class PetRepositoryInterface(ABC):
         
         raise Exception("Method not implemented")
 
-    def select_pet_by_name(self, name: str, specie: str, age: int, user_id: int) -> Pets:
+    def select_pet_by_id(self, pet_id: int) -> Pets:
         """ abstractmethod """
         
         raise Exception("Method not implemented")
 
-    def select_pet_by_name(self, name: str, specie: str, age: int, user_id: int) -> Pets:
+    def select_pet_by_user_id(self, user_id: id) -> Pets:
         """ abstractmethod """
         
         raise Exception("Method not implemented")

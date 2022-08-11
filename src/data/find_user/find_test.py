@@ -1,4 +1,3 @@
-from urllib import response
 from faker import Faker
 from .find import FindUser
 from src.infra.test import UserRepositorySpy
@@ -44,3 +43,4 @@ def test_by_id():
     assert response["Data"] 
     
 
+ 

@@ -33,4 +33,4 @@ class UserRepositorySpy:
     def select_user_by_name(self, name: str = None) -> List[Users]:
         self.select_user_by_name_params["name"] = name   
         
-        return [mock_users()]
+        return mock_users()
