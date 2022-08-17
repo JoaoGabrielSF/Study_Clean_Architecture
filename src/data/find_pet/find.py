@@ -1,4 +1,4 @@
-from src.domain.models.pets import Pets
+from src.domain.models import Pets
 from typing import Dict, List,Type
 from src.domain.use_cases import FindPet as FindPetInterface
 from src.data.interfaces import PetRepositoryInterface as PetRepository 
@@ -11,12 +11,12 @@ class FindPet(FindPetInterface):
      self.pet_repository = pet_repository
      
      
-    def find_pet_by_id(self, pet_id: int) -> Dict[bool,List[Pets]]:
+    def by_pet_id(self, pet_id: int) -> Dict[bool,List[Pets]]:
         """ Select Pet by pet_id
         :params - id : pet's id
         :return - Dictionary with informations of the process
         """
-        
+    
         response = None
         validate_entry = isinstance(pet_id, int)
         
@@ -26,7 +26,7 @@ class FindPet(FindPetInterface):
         return{"Sucess" : validate_entry, "Data" : response}
          
      
-    def find_pet_by_user_id(self, user_id: int) -> Dict[bool,List[Pets]]:
+    def by_user_id(self, user_id: int) -> Dict[bool,List[Pets]]:
         """ Select Pet by user_id
         :params - user_id : pet's User_id
         :return - Dictionary with informations of the process

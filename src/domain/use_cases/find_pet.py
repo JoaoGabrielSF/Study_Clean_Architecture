@@ -1,5 +1,5 @@
 from abc import ABC, abstractclassmethod
-from src.domain.models  import Pets
+from src.domain.models import Pets
 from typing import Dict, List
 
 class FindPet(ABC):

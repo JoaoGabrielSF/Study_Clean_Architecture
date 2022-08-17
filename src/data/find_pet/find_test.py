@@ -13,15 +13,15 @@ def test_by_id():
     attributes = {
         "id" : faker.random_number()
     }
-    response = find_pet.find_pet_by_id(pet_id=attributes["id"])
+    response = find_pet.by_pet_id(pet_id=attributes["id"])
     
-    #testing input
+    
+    #Testing input
     assert pet_repo.select_pet_by_id_params["id"] == attributes["id"]
     
-    #testing output
+    #Testing output
     assert response["Sucess"] is True
     assert response["Data"]
-
 
 def test_by_user_id():
     """ Testing find Pet by_use_id method """
@@ -32,7 +32,7 @@ def test_by_user_id():
     attributes = {
         "user_id" : faker.random_number()
     }
-    response = find_pet.find_pet_by_user_id(user_id=attributes["user_id"])
+    response = find_pet.by_user_id(user_id=attributes["user_id"])
     
     #testing input
     assert pet_repo.select_pet_by_user_id_params["user_id"] == attributes["user_id"]

@@ -1,5 +1,5 @@
 from abc import ABC, abstractclassmethod
-from src.domain.models  import Users
+from src.domain.models import Users
 from typing import Dict, List
 
 class FindUser(ABC):

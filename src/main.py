@@ -19,7 +19,7 @@ app.add_middleware(
 @app.get("/home")
 def home():
     return(
-        "Página teste"
+        "%s top %s dms"
     )
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ def mock_pets() -> Pets:
     
     return Pets(
        id=faker.random_number(), 
-       namer=faker.name(),  
+       name=faker.name(),  
        specie="fish", 
        age=faker.random_number, 
        user_id=faker.random_number 
