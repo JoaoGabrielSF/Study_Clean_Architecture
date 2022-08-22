@@ -1,5 +1,4 @@
-from unicodedata import name
-from src.infra.repo.user_repository import UserRepository
+import datetime
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -15,11 +14,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+@app.options("/opt")
+def opt():
+    return(
+        FastAPI.options()
+    )
 @app.get("/home")
 def home():
     return(
-        "%s top %s dms"
+       datetime.datetime(2005, 7, 14, 12, 30)
     )
 
 if __name__ == "__main__":

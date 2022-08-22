@@ -11,8 +11,6 @@ class UserRepositorySpy:
         self.select_user_by_id_params = {}
         self.select_user_by_name_params ={}
         
-        
-        
     def insert_user(self, name: str, password: str) -> Users:
         """ Spy to all the attributes"""
    

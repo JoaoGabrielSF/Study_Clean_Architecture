@@ -8,11 +8,11 @@ class RegisterPet(RegisterPetInterface):
     """ Class to define usercase: Register User """
     
     def __init__(self, pet_repository: Type[PetRepository], find_user: Type[FindUser]):
-        self.pet_repository = pet_repository
-        self.find_user = find_user
+        self.__pet_repository = pet_repository
+        self.__find_user = find_user
         
         
-    def register(self, name: str, specie: str, age: int, user_id: int) -> Dict[bool, Pets]:
+    def register(self, name: str, specie: str, user_information: Dict[int,str], age: int = None) -> Dict[bool, Pets]:
         """ Register user use case
          :param - name: pet name
                 - specie: specie of pet
@@ -24,12 +24,12 @@ class RegisterPet(RegisterPetInterface):
         response = None
         
         # Validate entry and trying to find an user
-        validate_entry = isinstance(name, str) and isinstance(specie, str) and isinstance(age, int) and isinstance(user_id, int)
-        user_information = self.__find_user_information()
-        checker = validate_entry and user_information["Sucess"]
+        validate_entry = isinstance(name, str) and isinstance(specie, str)  and isinstance(age, int)
+        user = self.__find_user_information(user_information)
+        checker = validate_entry and user["Sucess"]
        
         if checker:
-            response = self.pet_repository.insert_pet(name, specie, age, user_information["user_id"])
+            response = self.__pet_repository.insert_pet(name, specie, age, user_information["user_id"])
         
         return {"Sucess": checker, "Data": response} 
              
@@ -39,20 +39,26 @@ class RegisterPet(RegisterPetInterface):
         :return - Dictionary with the response of find_use use case
         """
         
-        user_information = None
+        user_founded = None
         user_params = user_information.keys()
         
-     
-        if "user_id" in user_params:
-            user_founded = self.find_user.by_id(user_information["user_id"])
+        if "user_name" in user_params and not "user_id" in user_params:
+            user_founded = self.__find_user.by_name(user_information["user_name"])
         
-        elif "user_name" in user_params:
-            user_founded = self.find_user.by_name(user_information["user_name"])
+        elif "user_id" in user_params and not "user_name" in user_params :
+            user_founded = self.__find_user.by_id(user_information["user_id"])
+        
+        elif "user_id" in user_params and "user_name" in user_params :
+            user_name = self.__find_user.by_name(user_information["user_name"])
+            user_id = self.__find_user.by_id(user_information["user_id"])
+            user_founded = user_name and user_id
             
         else:
             return {"Sucess": False, "Data": None}
         
         return user_founded
         
+       
+    
         
         
