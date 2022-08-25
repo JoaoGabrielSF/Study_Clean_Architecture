@@ -3,7 +3,7 @@ from src.domain.models import Users
 from src.domain.test import mock_users
 
 class FindUserSpy:
-    """ Class to definne usecase: Select User"""
+    """ Class to define usecase: Select User"""
     
     def __init__(self, user_repository: any):
         self.user_repository = user_repository

@@ -41,9 +41,8 @@ def test_register():
     assert response["Sucess"] is True
     assert response["Data"]
     
-    print(pet_repo.insert_pet_params["name"])
-    print(attributes["name"])
-    print(find_user.by_id_param["user_id"])
-    print(attributes["user_information"]["user_id"])
+    print(response["Data"])
     print(find_user.by_name_param["name"])
-    print(attributes["user_information"]["user_name"])
+    
+   
+    

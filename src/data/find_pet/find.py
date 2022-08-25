@@ -23,7 +23,7 @@ class FindPet(FindPetInterface):
         if validate_entry:
             response = self.pet_repository.select_pet_by_id(pet_id)
           
-        return{"Sucess" : validate_entry, "Data" : response}
+        return{"Sucess" : validate_entry, "Data" : response}  
          
      
     def by_user_id(self, user_id: int) -> Dict[bool,List[Pets]]:

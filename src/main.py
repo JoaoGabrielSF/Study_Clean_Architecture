@@ -17,7 +17,7 @@ app.add_middleware(
 @app.options("/opt")
 def opt():
     return(
-        FastAPI.options()
+        FastAPI.options( )
     )
 @app.get("/home")
 def home():

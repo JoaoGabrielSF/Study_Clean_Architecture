@@ -5,7 +5,7 @@ from src.data.interfaces import PetRepositoryInterface as PetRepository
 from src.domain.models import Pets, Users
 
 class RegisterPet(RegisterPetInterface):
-    """ Class to define usercase: Register User """
+    """ Class to define usecase: Register Pet """
     
     def __init__(self, pet_repository: Type[PetRepository], find_user: Type[FindUser]):
         self.__pet_repository = pet_repository
@@ -48,7 +48,7 @@ class RegisterPet(RegisterPetInterface):
         elif "user_id" in user_params and not "user_name" in user_params :
             user_founded = self.__find_user.by_id(user_information["user_id"])
         
-        elif "user_id" in user_params and "user_name" in user_params :
+        elif "user_id" and "user_name" in user_params :
             user_name = self.__find_user.by_name(user_information["user_name"])
             user_id = self.__find_user.by_id(user_information["user_id"])
             user_founded = user_name and user_id
@@ -58,7 +58,6 @@ class RegisterPet(RegisterPetInterface):
         
         return user_founded
         
-       
     
         
         
