@@ -12,7 +12,7 @@ def test_register():
     register_user = RegisterUser(user_repo)
     attributes = {
         "name" : faker.name(),
-        "password" : faker.word(),
+        "password" : faker.word()
     }
     
     response = register_user.register(name=attributes["name"], password=attributes["password"])

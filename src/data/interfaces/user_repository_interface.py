@@ -21,12 +21,7 @@ class UserRepositoryInterface(ABC):
         
         raise Exception("Method not implemented")
     
-    
-    def select_user_by_id_and_name(self, name: str, id: int) -> Users:
-        """ abstractmethod """
-        
-        raise Exception("Method not implemented")
-    
+
     
  
     

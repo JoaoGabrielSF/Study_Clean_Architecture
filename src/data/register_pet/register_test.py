@@ -41,6 +41,7 @@ def test_register():
     assert response["Sucess"] is True
     assert response["Data"]
     
+    print(attributes["age"])
     print(response["Data"])
     print(find_user.by_name_param["name"])
     

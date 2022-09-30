@@ -2,7 +2,7 @@ from typing import Dict,List
 from src.domain.test import mock_pets, mock_users
 from src.domain.models import Pets, Users
 
-class RegistePetSpy:
+class RegisterPetSpy:
     """ Class to define usecase: Register Pet """
      
     def __init__(self, pet_repository: any, find_user: any):
