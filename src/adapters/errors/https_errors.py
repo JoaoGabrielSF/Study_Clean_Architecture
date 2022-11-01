@@ -1,4 +1,4 @@
-class HttpError:
+class HttpErrors:
     """ Class to define Http Errors"""
    
     @staticmethod
@@ -29,4 +29,9 @@ class HttpError:
         return { "status_code": 500, "body": { "error":  "Internal Server Error"}}
 
     
+    @staticmethod
+    def error_502():
+        """ HttpError 502"""
+        
+        return { "status_code": 502, "body": { "error": "Bad Gateway"}}
     
